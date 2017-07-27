@@ -1,0 +1,1 @@
+java -jar build\libs\logscanner-all-1.0-SNAPSHOT.jar o.zZDaYR0nnZf2aCiRZMHO1q7v1afyAq6K tirant_d2 D:\projects\etal
