@@ -81,6 +81,7 @@ public class Main {
 
   public static void main(String... args) throws Exception {
     System.out.println("ETAL LogScanner");
+    if (DBG) System.out.println("Debug mode is ENABLED");
 
     Options options = new Options();
     options.addOption(Option.builder("d")
