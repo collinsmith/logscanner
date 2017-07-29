@@ -214,7 +214,7 @@ public class Main {
 
               lastItem = item;
               String body = String.format("%s found %s", item.character, item);
-              if (DONT_SNAPSHOT.contains(item.typedesc)) {
+              if (DONT_SNAPSHOT.contains(item.typedesc) || item.unidentified) {
                 CHANNEL.pushNote(null, body);
                 System.out.printf("Pushing %s::%s%n", item.character, item.name);
               } else {
@@ -334,6 +334,7 @@ public class Main {
     final String location;
     final boolean ethereal;
     final String desc;
+    final boolean unidentified;
 
     static Item parse(Node node) {
       return new Item(node);
@@ -352,6 +353,7 @@ public class Main {
       location = attrs.getNamedItem("location").getTextContent();
       ethereal = Boolean.parseBoolean(attrs.getNamedItem("ethereal").getTextContent());
       desc = node.getTextContent();
+      unidentified = desc.endsWith("Unidentified");
     }
 
     @Override
@@ -359,6 +361,11 @@ public class Main {
       StringBuilder builder = new StringBuilder();
       if (ethereal) {
         builder.append("ethereal");
+        builder.append(' ');
+      }
+
+      if (unidentified) {
+        builder.append("unid");
         builder.append(' ');
       }
 
