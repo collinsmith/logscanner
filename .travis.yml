@@ -23,7 +23,7 @@ before_deploy:
   - export RELEASE_JAR_LIBRARY=$(ls build/libs/*.jar)
   - export GIT_TAG=${RELEASE_JAR_LIBRARY%.jar}
   - GIT_TAG=${GIT_TAG##*/}
-  - GIT_TAG=${GIT_TAG/logscanner-all-/v}
+  - GIT_TAG=${GIT_TAG/logscanner-/v}
   - echo "Deploying $RELEASE_JAR_LIBRARY to GitHub releases as $GIT_TAG"
   - git config --global user.email "builds@travis-ci.org"
   - git config --global user.name "Travis CI"
