@@ -23,7 +23,7 @@ before_deploy:
   - export RELEASE_JAR_LIBRARY=$(ls build/libs/*.jar)
   - export GIT_TAG=${RELEASE_JAR_LIBRARY%.jar}
   - GIT_TAG=${GIT_TAG##*/}
-  - GIT_TAG=${GIT_TAG/builder-/v}
+  - GIT_TAG=${GIT_TAG/logscanner-all-/v}
   - echo "Deploying $RELEASE_JAR_LIBRARY to GitHub releases as $GIT_TAG"
   - git config --global user.email "builds@travis-ci.org"
   - git config --global user.name "Travis CI"
@@ -32,7 +32,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: rvvTseI53cpj0wAu+S5w+cWgaRJRqF1EwkwTVdF5FL2qVbjzqNVIjgjgXJrstGEphWmLutqwj7y2YohwSkwc0C8x0gzpFFeJhYLtZlwOJVCr3LlbDqkpDSJbatbCrC1SjU6WuoizrW8p98PjTnvQgexdM3L3Org5473Xi8EYVDsshEsWQsuD0Zw3cx/VFGOK/wmYclbAJCIjo/MnQ7Hs9G2tij+Su1asUjZMNpI/q7sW++Bq/IKeukr2mJwHmMblqwfGGZP7OTSfr3HIx1kmtGCTF8YqlQnMzNqjUQ6SVWTUje3Ldpp87BYCnaOgVkH/FGGrg1wXQ1Nxp2lBkCDu/xeIeBs3VEuDQmW+S2YvMEdZ5bNKDwtQNM67EnqWasfwwLcw9HQ1rFWxovsF97je0rCaCjiXvoK2ocv0M6f9u8X/G4ZxJagG1OKYH+FNerJgz6LFCFcm7Su1+JOwKKWzl0n+z5f8MBQCFabCw7jZiBb54gBvsSsIUZ3EZqPLKXNtFBPU1b35wh4EYJznPQ5ObuNqJyCxBrKpR1owdF9CW0x2Yws3YWtyOFeT/NTYHTb5oQrxn2HgyDmI/sk8smXXkxba9Sh/Vp62XpPhvKlOMmzq4smcFV1E4KM6AbAcjQ0v5NxGVuiNM2vMwPzlKQ6a3jo98pPs5V/Uq2NnPJahHe8=
+    secure: Svd4ooy8/TJWG9FxD1aQZHhuQX8DL3anve/NgV31VCLmNHkkR0UZrGNSkgtSKbv6j7zC8Yu3TWqCzQ+nXqIb3TiMjVZQRAsnjXH1jelVvgDODu7xhd0KinhGdiYVU2emwT7OPW//guiyfHQm+CY51f5+OAzTr8ewF8tiwcwrA9uyO9eJ6WualFyo+kGixFVVtoulGJhJ7teFvCAnfM322VtqqGhvxqOU1Us5BcnGsyar79R0z7TWSo6YN5K28gEEcB5otwMDkvfBfkA0fMJqeWgZu3WkM2Ssdcy4zqXjXpBaFwRAUaTYx25vQIQIuuXOJDCukoTefg1zchITr/fmtHBjqDKwSpLY9W10XbK26Zkj6SL640OEPLeI5VDGOQry1jFt3UeeyeUBqThTfCQYvX52YUS/AKk2zYrMIeeVg6/oiq8fRDTR5+jI4PdMvfbpw7OkcSaw7dU4tqPnkjmgWm061GA5sdI+3U5E8cgXKxz4ZnLcgs7H5b9b2LJY3wzNWinjNiO6z+7h7qf8DlUcFjNU4IqgMtY+LAhio4539HPPWy2ZeI+bwYHUEIHnexLkasl1BvimWgOoRZXHimiexZX5+BiY+SV+ChU7KVlP4E4m7c67a8ulHgDOObQTsDKL/sMA6qrPd+bmVgIpC/+3myLNgX+0ip/cNi5Vj9s9q28=
   file_glob: true
   file: "${RELEASE_JAR_LIBRARY}"
   skip_cleanup: true
